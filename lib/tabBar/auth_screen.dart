@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kaz_post/registration_screen.dart';
+import 'package:kaz_post/tabBar/registration_screen.dart';
 
 import 'login_screen.dart';
 class AuthScreen extends StatelessWidget {

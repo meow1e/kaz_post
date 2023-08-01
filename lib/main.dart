@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'auth_screen.dart';
+import 'tabBar/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());

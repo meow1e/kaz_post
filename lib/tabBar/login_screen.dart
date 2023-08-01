@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
+import '../homeScreen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return const LoginTextField();
   }
 }
@@ -39,46 +38,55 @@ class _LoginTextFieldState extends State<LoginTextField> {
           children: [
              const SizedBox(height: 10 ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100.0,vertical: 10),
-              child: TextField(
-                  controller: login,
-                  decoration: InputDecoration(border:
-                  OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                    hintText: 'Введите логин',
-                    labelText: 'Введите логин',)
+              padding: const EdgeInsets.symmetric(horizontal: 60.0,vertical: 10),
+              child: Card(
+                elevation: 15,
+                child: TextField(
+                    controller: login,
+                    decoration: InputDecoration(border:
+                    OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                      hintText: 'Логин',
+                      labelText: 'Логин',)
+                ),
               ),
       ),
             const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 100.0,vertical: 10),
-                child: TextField(
+                padding: const EdgeInsets.symmetric(horizontal: 60.0,vertical: 10),
+                child: Card(
+                  elevation: 15,
+                  child: TextField(
+                    obscureText: hidePassword,
           controller: password,
           decoration: InputDecoration(border:
           OutlineInputBorder(
               borderRadius: BorderRadius.circular(10)
           ),
-                hintText: 'Введите пароль',
-                labelText: 'Введите пароль',
+                  hintText: 'Пароль',
+                  labelText: 'Пароль',
           suffixIcon: IconButton(
             icon: hidePassword
             ? const Icon(Icons.visibility_off)
             : const Icon(Icons.visibility),
             onPressed: () {
               setState(() {
-                hidePassword=!hidePassword;
+                  hidePassword=!hidePassword;
               });
             },
           ))
         ),
+                ),
               ),
             Padding(padding: const EdgeInsets.symmetric(horizontal: 16),
                     child:Material(child:
                     Column(
                   children: [
                     ElevatedButton(
-                      onPressed: () {setState(() {validate=login.text.isEmpty;
+                      onPressed: () {setState(() {
+                        validate=login.text.isEmpty;
+                        validate=password.text.isEmpty;
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));});},
                       style: ElevatedButton.styleFrom(
                         primary:  Colors.blue[200],
@@ -87,7 +95,7 @@ class _LoginTextFieldState extends State<LoginTextField> {
                         shadowColor: Colors.blue[300],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                        padding: const EdgeInsets.symmetric(horizontal: 160,vertical: 30)
+                        padding: const EdgeInsets.symmetric(horizontal: 160,vertical: 25)
                       ),
                       child: const Text('Войти',style: TextStyle(fontSize: 18),),
                     ),Padding(
@@ -102,20 +110,26 @@ class _LoginTextFieldState extends State<LoginTextField> {
                       child: const Text('Забыли пароль'),
                   ),
               ),
-                    ),Padding(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 38), child:
-                ElevatedButton(
-                  onPressed: () {setState(() {validate=login.text.isEmpty;
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));});},
+                    ),Padding(padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 25), child:
+                ElevatedButton.icon(
+                  icon: const Image(image: AssetImage
+                    ('assets/images/idImage.png'),width: 60,height: 40,),
+                  onPressed: () {
+                    setState(() {
+                    validate=login.text.isEmpty;
+                    validate=password.text.isEmpty;});},
                   style: ElevatedButton.styleFrom(
-                      primary:  Colors.blue[200],
-                      onPrimary: Colors.white,
+                      side: BorderSide(color: Colors.blue[900]!),
+                      backgroundColor: Colors.white,
+                      onPrimary: Colors.blue[900],
                       elevation: 15,
-                      shadowColor: Colors.blue[200],
+                      shadowColor: Colors.blue[900],
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
-                      padding: const EdgeInsets.symmetric(horizontal: 160,vertical: 30)
+                      padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 20)
                   ),
-                  child: const Text('Войти',style: TextStyle(fontSize: 18),),
+                  label: const Text('Войти с помощью Digital ID',style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.left ,),
         )
                     )])
             )
