@@ -10,6 +10,7 @@ class AuthScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.blue[900],
         appBar: AppBar(backgroundColor: Colors.white,centerTitle: true,
           title: const Image(width:140, height:160,
               image: AssetImage('assets/images/logo.png')),
