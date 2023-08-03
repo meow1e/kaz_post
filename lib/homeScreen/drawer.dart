@@ -20,13 +20,17 @@ class _HomeScreenDrawerState extends State<HomeScreenDrawer> {
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage('assets/images/profPic.png'),),
             ),
-            DrawerTextButton(text: Text('Мои данные',textAlign: TextAlign.left),),
+            DrawerTextButton(text: Text('Мои данные',textAlign: TextAlign.left,
+                style: TextStyle(color: Colors.black)),),
             Divider(),
-            DrawerTextButton(text: Text('Мои курсы',textAlign: TextAlign.left),),
+            DrawerTextButton(text: Text('Мои курсы',textAlign: TextAlign.left,
+                style: TextStyle(color: Colors.black)),),
             Divider(),
-            DrawerTextButton(text: Text('Мои тесты',textAlign: TextAlign.left),),
+            DrawerTextButton(text: Text('Мои тесты',textAlign: TextAlign.left,
+              style: TextStyle(color: Colors.black),),),
             Divider(),
-            DrawerTextButton(text: Text('Поддержка',textAlign: TextAlign.left),),
+            DrawerTextButton(text: Text('Поддержка',textAlign: TextAlign.left,
+                style: TextStyle(color: Colors.black)),),
             Divider(),
             DrawerTextButton(text: Text('Выйти с аккаунта',textAlign: TextAlign.left,
             style: TextStyle(color: Colors.red),))
@@ -39,15 +43,26 @@ class _HomeScreenDrawerState extends State<HomeScreenDrawer> {
 
 class DrawerTextButton extends StatelessWidget {
   final Text? text;
-  const DrawerTextButton({super.key, this.text});
+
+  const DrawerTextButton({Key? key, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: TextButton(
         onPressed: () {},
         style: TextButton.styleFrom(
-          padding: const EdgeInsets.symmetric(horizontal: 10)
+          padding: const EdgeInsets.symmetric(horizontal: 10),
         ),
-        child:text ?? const Text("bruh") );
+        child: text ?? const Text("bruh"),
+      ),
+    );
   }
 }
+
+
+
+
+
+
