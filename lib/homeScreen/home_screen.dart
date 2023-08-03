@@ -85,19 +85,19 @@ class _HomeScreenContentState extends State<HomeScreenContent> {
                 ),
             ),
              const SizedBox(height: 55),
-            GridView.builder(
+            GridView.builder(padding: EdgeInsets.all(20),
               shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount:2,
                 childAspectRatio: 1.5,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10),
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 35),
               itemCount: colors.length,
                 itemBuilder: (context, index){
                   return Container(
                     decoration: BoxDecoration(
                         color: colors[index],
-                      borderRadius: BorderRadius.circular(15)
+                      borderRadius: BorderRadius.circular(45)
                     ),
                     child: Column(
                       children: [
